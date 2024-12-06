@@ -179,7 +179,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Record Audio
+  m_text: 'Voice Input
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -285,6 +287,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eefbd11ffb38c44df838a14e1f1024a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputField: {fileID: 1038625524}
+  outputText: {fileID: 1580885623}
   OnResponse:
     m_PersistentCalls:
       m_Calls:
@@ -440,7 +444,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Text to Speech
+  m_text: Send
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -530,7 +534,7 @@ GameObject:
   - component: {fileID: 327963392}
   - component: {fileID: 327963391}
   m_Layer: 5
-  m_Name: Text-Speech
+  m_Name: Send
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -553,8 +557,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -431, y: -260.00552}
-  m_SizeDelta: {x: 216.8154, y: 35.3721}
+  m_AnchoredPosition: {x: -321.68262, y: -260.00552}
+  m_SizeDelta: {x: 77.1751, y: 35.3721}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &327963391
 MonoBehaviour:
@@ -600,10 +604,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 717252662}
-        m_TargetAssemblyTypeName: GoogleCloudIntegration, Assembly-CSharp
-        m_MethodName: ConvertTextToSpeech
-        m_Mode: 5
+      - m_Target: {fileID: 84968493}
+        m_TargetAssemblyTypeName: ChatGPTManager, Assembly-CSharp
+        m_MethodName: OnSendButtonClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -744,8 +748,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1038625523}
   - {fileID: 1228332407}
+  - {fileID: 1038625523}
   - {fileID: 1308550788}
   - {fileID: 327963390}
   m_Father: {fileID: 0}
@@ -849,50 +853,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &717252661
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 717252663}
-  - component: {fileID: 717252662}
-  m_Layer: 0
-  m_Name: GoogleCloudManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &717252662
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 717252661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42c48a64f091f4b77af3d0dc4cbf1c53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &717252663
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 717252661}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0013883361, y: 1.3935642, z: 0.05350887}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1021,7 +981,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -605.24426, y: -167}
+  m_AnchoredPosition: {x: -605.24426, y: -164}
   m_SizeDelta: {x: 173.3889, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1038625524
@@ -1313,7 +1273,7 @@ GameObject:
   - component: {fileID: 1308550790}
   - component: {fileID: 1308550789}
   m_Layer: 5
-  m_Name: Speech-Text
+  m_Name: 'Voice Input '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1336,8 +1296,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -775, y: -260.0055}
-  m_SizeDelta: {x: 216.8154, y: 35.3721}
+  m_AnchoredPosition: {x: -841.80505, y: -260.0055}
+  m_SizeDelta: {x: 131.4796, y: 35.3721}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1308550789
 MonoBehaviour:
@@ -1383,9 +1343,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 717252662}
-        m_TargetAssemblyTypeName: GoogleCloudIntegration, Assembly-CSharp
-        m_MethodName: RecordAudio
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: VoiceInputManager, Assembly-CSharp
+        m_MethodName: StartVoiceInput
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1673,12 +1633,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
+  m_fontSize: 18
   m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMin: 10
+  m_fontSizeMax: 18
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
@@ -1837,8 +1797,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0
@@ -1994,4 +1954,3 @@ SceneRoots:
   - {fileID: 692281723}
   - {fileID: 129392669}
   - {fileID: 84968494}
-  - {fileID: 717252663}
